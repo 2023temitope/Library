@@ -1,13 +1,13 @@
 package library;
 
-import java.util.Objects;
-
-public class Item {
+public abstract class Item implements Comparable<Item> {
 	public static int count = 0;
 	private int id;
 	private String title;
 	private int pages;
 	private int date;
+	private String name;
+	private boolean available = true;
 
 //constructors
 	public Item() {
@@ -55,9 +55,24 @@ public class Item {
 //		System.out.println("TITLE:" + this.getTitle());
 //	}
 
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
 	@Override
-	public int hashCode() {
-		return Objects.hash(title, pages, date);
+	public int compareTo(Item o) {
+		if (id < o.id) {
+			return -1;
+		} else if (id > o.id) {
+			return +1;
+		} else {
+			return 0;
+
+		}
 	}
 
 	@Override
@@ -69,11 +84,20 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		return false;
+
 	}
 
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", title=" + title + ", pages=" + pages + ", date=" + date + "]";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

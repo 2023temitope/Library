@@ -2,36 +2,48 @@ package library;
 
 public class Books extends Item {
 
-	private String fantasy;
-	private String historic;
-	private String romance;
+	private String title;
+	private int pages;
+	private int date;
 
 	public Books() {
 		super();
+		this.title = title;
+		this.pages = pages;
+		this.date = date;
+
 	}
 
-	public String getFantasy() {
-		return fantasy;
+	@Override
+	public String getTitle() {
+		return title;
+
 	}
 
-	public void setFantasy(String fantasy) {
-		this.fantasy = fantasy;
+	@Override
+	public void setTitle(String title) {
+		this.title = title;
+
 	}
 
-	public String getHistoric() {
-		return historic;
+	@Override
+	public int getPages() {
+		return pages;
 	}
 
-	public void setHistoric(String historic) {
-		this.historic = historic;
+	@Override
+	public void setPages(int pages) {
+		this.pages = pages;
 	}
 
-	public String getRomance() {
-		return romance;
+	@Override
+	public int getDate() {
+		return date;
 	}
 
-	public void setRomance(String romance) {
-		this.romance = romance;
+	@Override
+	public void setDate(int date) {
+		this.date = date;
 	}
 
 }
